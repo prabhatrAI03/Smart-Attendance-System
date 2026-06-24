@@ -1,49 +1,4 @@
-# import os
-# import sqlite3
 
-# # paths
-# dataset_path = os.path.join("data", "Attendance_dataset")
-# db_path = os.path.join("data", "attendance.db")
-
-# # connect to database
-# conn = sqlite3.connect(db_path)
-# cursor = conn.cursor()
-
-# # read all student folders
-# for folder_name in os.listdir(dataset_path):
-#     folder_path = os.path.join(dataset_path, folder_name)
-
-#     # skip if not a folder
-#     if not os.path.isdir(folder_path):
-#         continue
-
-#     # expected format: STU001_George_W_Bush
-#     parts = folder_name.split("_", 1)
-
-#     if len(parts) < 2:
-#         print(f"Skipped folder (wrong format): {folder_name}")
-#         continue
-
-#     roll_no = parts[0]         # STU001
-#     name = parts[1]            # George_W_Bush
-
-#     # insert into students table
-#     try:
-#         cursor.execute("""
-#             INSERT INTO students (roll_no, name, folder_name)
-#             VALUES (?, ?, ?)
-#         """, (roll_no, name, folder_name))
-
-#         print(f"Inserted: {roll_no} | {name} | {folder_name}")
-
-#     except sqlite3.IntegrityError:
-#         print(f"Already exists: {roll_no}")
-
-# # save and close
-# conn.commit()
-# conn.close()
-
-# print("All student folders processed.")
 
 import os
 import sqlite3

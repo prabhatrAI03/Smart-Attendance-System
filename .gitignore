@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+cvdev/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# SQLite database
+data/attendance.db
+*.db
+
+# Pickle / embeddings
+data/embeddings.pkl
+*.pkl
+
+# Logs / temp
+*.log
+temp/
+tmp/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -4,14 +4,16 @@ import os
 # make sure data folder exists
 os.makedirs("data", exist_ok=True)
 
-# path of database file
+# database path
 db_path = os.path.join("data", "attendance.db")
 
-# connect to SQLite database
+# connect to database
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
-# create students table
+# -------------------------
+# 1. Create students table
+# -------------------------
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS students (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,11 +23,15 @@ CREATE TABLE IF NOT EXISTS students (
 )
 """)
 
-# create attendance table
+# ---------------------------
+# 2. Create attendance table
+# ---------------------------
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS attendance (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id INTEGER,
+    roll_no TEXT,
+    name TEXT,
     date TEXT,
     time TEXT,
     status TEXT DEFAULT 'Present',
@@ -33,8 +39,8 @@ CREATE TABLE IF NOT EXISTS attendance (
 )
 """)
 
-# save changes and close
+# save changes
 conn.commit()
 conn.close()
 
-print("attendance.db created and tables are ready.")
+print("Database and tables are ready.")
